@@ -28,79 +28,73 @@ const texts = {
     madeBy: "صُنع بواسطة حسن هادي"
   }
 };
+
 // Apply text content based on current language
 document.addEventListener('DOMContentLoaded', () => {
-  // Common elements
   const siteNameElem = document.getElementById('site-name');
   const creditsElem = document.getElementById('credits');
   if(siteNameElem) siteNameElem.textContent = texts[lang].siteName;
   if(creditsElem) creditsElem.textContent = texts[lang].madeBy;
-  // Page-specific elements
+
   const startBtn = document.getElementById('start-btn');
   const descElem = document.getElementById('description');
   const loadingText = document.getElementById('loading-text');
   const nextBtn = document.getElementById('next-btn');
   const prevBtn = document.getElementById('prev-btn');
   const progressElem = document.getElementById('progress');
+
   if(descElem) descElem.textContent = texts[lang].description;
+
   if(startBtn) {
     startBtn.textContent = texts[lang].startTest;
     startBtn.addEventListener('click', () => {
-      // Start test
-      window.location.href = 'test.html';
+      // ✅ Fixed redirect
+      window.location.href = './test.html';
     });
   }
+
   if(nextBtn) nextBtn.textContent = texts[lang].next;
   if(prevBtn) prevBtn.textContent = texts[lang].prev;
   if(loadingText) loadingText.textContent = texts[lang].loading;
+
   // Page logic
   if(document.body.classList.contains('test-page')) {
-    // Test page
     fetch('questions.json')
       .then(res => res.json())
       .then(questions => {
         let currentIndex = 0;
         const totalQuestions = questions.length;
         const userAnswers = new Array(totalQuestions).fill(null);
-        // UI references
         const questionText = document.getElementById('question-text');
         const optionsContainer = document.getElementById('options-container');
         const nextButton = document.getElementById('next-btn');
         const prevButton = document.getElementById('prev-btn');
         const progressText = document.getElementById('progress');
-        // Render a question
+
         function showQuestion(index) {
           const q = questions[index];
-          // Set question text
           questionText.textContent = lang === 'ar' ? q.question_ar : q.question_en;
-          // Render options
           optionsContainer.innerHTML = '';
           q.options_en.forEach((opt, j) => {
             const optionText = lang === 'ar' ? q.options_ar[j] : q.options_en[j];
             const optionId = `q${index}_${j}`;
-            // Radio input
             const input = document.createElement('input');
             input.type = 'radio';
             input.name = `q${index}`;
             input.id = optionId;
             input.value = j;
             if(userAnswers[index] === j) input.checked = true;
-            // Label
             const label = document.createElement('label');
             label.htmlFor = optionId;
             label.textContent = optionText;
-            // Append to container
             optionsContainer.appendChild(input);
             optionsContainer.appendChild(label);
           });
-          // Update progress
           const qWord = lang === 'ar' ? 'السؤال' : 'Question';
           progressText.textContent = `${qWord} ${index+1} ${lang==='ar' ? 'من' : 'of'} ${totalQuestions}`;
-          // Update buttons
           prevButton.disabled = (index === 0);
           nextButton.textContent = (index === totalQuestions - 1) ? texts[lang].finish : texts[lang].next;
           nextButton.disabled = (userAnswers[index] === null);
-          // Enable Next on selection
           document.querySelectorAll(`input[name="q${index}"]`).forEach(inputElem => {
             inputElem.addEventListener('change', () => {
               userAnswers[index] = Number(inputElem.value);
@@ -108,15 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           });
         }
-        // Initial question
+
         showQuestion(0);
-        // Next button handler
+
         nextButton.addEventListener('click', () => {
           if(currentIndex < totalQuestions - 1) {
             currentIndex++;
             showQuestion(currentIndex);
           } else {
-            // Finish test
             const scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
             questions.forEach((q, idx) => {
               const answer = userAnswers[idx];
@@ -138,10 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const resultType = typeLetters.join('');
             localStorage.setItem('type', resultType);
             localStorage.setItem('scores', JSON.stringify(scores));
-            window.location.href = 'result.html';
+            // ✅ Fixed redirect to result page
+            window.location.href = './result.html';
           }
         });
-        // Prev button handler
+
         prevButton.addEventListener('click', () => {
           if(currentIndex > 0) {
             currentIndex--;
@@ -151,11 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
   else if(document.body.classList.contains('result-page')) {
-    // Result page
     const typeCode = localStorage.getItem('type');
     const scores = JSON.parse(localStorage.getItem('scores') || '{}');
     if(!typeCode || !scores) {
-      window.location.href = 'index.html';
+      window.location.href = './index.html';
       return;
     }
     const resultTypeElem = document.getElementById('result-type');
@@ -165,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const famousListElem = document.getElementById('famous-list');
     const chartTitleElem = document.getElementById('chart-title');
     resultTypeElem.textContent = typeCode;
+
     fetch('types.json')
       .then(res => res.json())
       .then(typesData => {
