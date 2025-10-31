@@ -1,121 +1,125 @@
-// تحديد اللغة من التخزين المحلي أو افتراض العربية
+// تحديد اللغة الحالية (عربية أو إنجليزية) من localStorage أو افتراضية 'ar'
 let lang = localStorage.getItem('lang') || 'ar';
 
-// النصوص المستخدمة في الموقع
-const texts = {
-  ar: {
-    next: "التالي",
-    prev: "السابق",
-    finish: "إنهاء",
-    madeBy: "صُنع بواسطة حسن هادي",
-  },
-  en: {
-    next: "Next",
-    prev: "Previous",
-    finish: "Finish",
-    madeBy: "Made by Hassan Hadi",
-  }
+// ترجمة عناوين الأزرار والنصوص للغتين
+const ui = {
+  ar: { next: "التالي", prev: "السابق", finish: "إنهاء", madeBy: "صُنع بواسطة حسن هادي" },
+  en: { next: "Next", prev: "Previous", finish: "Finish", madeBy: "Made by Hassan Hadi" }
 };
 
-// تطبيق اللغة على العناصر
+// عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', () => {
-  const nextBtn = document.getElementById('next-btn');
-  const prevBtn = document.getElementById('prev-btn');
-  const creditsElem = document.getElementById('credits');
-
-  if (nextBtn) nextBtn.textContent = texts[lang].next;
-  if (prevBtn) prevBtn.textContent = texts[lang].prev;
-  if (creditsElem) creditsElem.textContent = texts[lang].madeBy;
-
   const loadingDiv = document.getElementById('loading');
   const testContainer = document.getElementById('test-container');
+  const credits = document.getElementById('credits');
+  // تعريب/ترجمة التذييل والأزرار
+  credits.textContent = ui[lang].madeBy;
+  document.getElementById('next-btn').textContent = ui[lang].next;
+  document.getElementById('prev-btn').textContent = ui[lang].prev;
 
-  // تحميل الأسئلة من ملف JSON
+  // Fetch الأسئلة
   fetch('questions.json')
     .then(res => res.json())
     .then(questions => {
-      // إخفاء شاشة التحميل بعد 2.5 ثانية
+      // إخفاء شاشة التحميل بعد 3 ثوانٍ
       setTimeout(() => {
         loadingDiv.style.display = 'none';
         testContainer.style.display = 'block';
-      }, 2500);
+      }, 3000);
 
       let currentIndex = 0;
-      const totalQuestions = questions.length;
-      const userAnswers = new Array(totalQuestions).fill(null);
+      const answers = new Array(questions.length).fill(null);
 
+      // عناصر DOM
       const questionText = document.getElementById('question-text');
       const optionsContainer = document.getElementById('options-container');
-      const nextButton = document.getElementById('next-btn');
-      const prevButton = document.getElementById('prev-btn');
-      const progressText = document.getElementById('progress');
+      const nextBtn = document.getElementById('next-btn');
+      const prevBtn = document.getElementById('prev-btn');
+      const progress = document.getElementById('progress');
 
+      // عرض سؤال بناءً على المؤشر
       function showQuestion(index) {
         const q = questions[index];
         questionText.textContent = lang === 'ar' ? q.question_ar : q.question_en;
-        optionsContainer.innerHTML = '';
 
-        const options = lang === 'ar' ? q.options_ar : q.options_en;
-        options.forEach((option, j) => {
+        // إنشاء الخيارات
+        optionsContainer.innerHTML = '';
+        const opts = lang === 'ar' ? q.options_ar : q.options_en;
+        opts.forEach((txt, i) => {
           const input = document.createElement('input');
           input.type = 'radio';
-          input.id = `q${index}_${j}`;
           input.name = `q${index}`;
-          input.value = j;
-          if (userAnswers[index] === j) input.checked = true;
+          input.id = `q${index}_${i}`;
+          input.value = i;
+          if (answers[index] === i) input.checked = true;
 
           const label = document.createElement('label');
           label.htmlFor = input.id;
-          label.textContent = option;
+          label.textContent = txt;
 
           optionsContainer.appendChild(input);
           optionsContainer.appendChild(label);
         });
 
-        progressText.textContent = `${index + 1} / ${totalQuestions}`;
-        prevButton.disabled = index === 0;
-        nextButton.textContent = index === totalQuestions - 1 ? texts[lang].finish : texts[lang].next;
-        nextButton.disabled = userAnswers[index] === null;
+        // تحديث عداد الأسئلة
+        progress.textContent = `${index + 1} / ${questions.length}`;
 
-        document.querySelectorAll(`input[name="q${index}"]`).forEach(input => {
-          input.addEventListener('change', () => {
-            userAnswers[index] = Number(input.value);
-            nextButton.disabled = false;
+        // زر السابق
+        prevBtn.disabled = (index === 0);
+
+        // زر التالي أو إنهاء
+        nextBtn.textContent = (index === questions.length - 1) ? ui[lang].finish : ui[lang].next;
+        nextBtn.disabled = (answers[index] === null);
+
+        // عند اختيار إجابة
+        document.querySelectorAll(`input[name="q${index}"]`).forEach(inp => {
+          inp.addEventListener('change', e => {
+            answers[index] = Number(e.target.value);
+            nextBtn.disabled = false;
           });
         });
       }
 
+      // عرض أول سؤال
       showQuestion(0);
 
-      nextButton.addEventListener('click', () => {
-        if (currentIndex < totalQuestions - 1) {
-          currentIndex++;
-          showQuestion(currentIndex);
-        } else {
-          // حساب النتائج
-          const scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+      // التالي/إنهاء
+      nextBtn.addEventListener('click', () => {
+        // إذا كنا في آخر سؤال -> احسب النتيجة
+        if (currentIndex === questions.length - 1) {
+          // حساب الدرجات لكل بعد: E/I, S/N, T/F, J/P
+          const scores = { E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0 };
           questions.forEach((q, idx) => {
-            const ans = userAnswers[idx];
+            const ans = answers[idx];
             if (ans === null) return;
-            const dim = q.dimension;
-            const first = dim[0];
-            const second = dim[1];
+            const first = q.dimension[0];
+            const second = q.dimension[1];
+            // 0 و 1 = تتجه للأول (قيمة +2، +1)
+            // 2 و 3 = تتجه للثاني (قيمة +1، +2)
             if (ans <= 1) scores[first] += (ans === 0 ? 2 : 1);
             else scores[second] += (ans === 3 ? 2 : 1);
           });
-          const resultType = [
+          // تحديد نوع الشخصية بناءً على أعلى قيمة في كل بعد
+          const type = [
             scores.E >= scores.I ? 'E' : 'I',
             scores.S >= scores.N ? 'S' : 'N',
             scores.T >= scores.F ? 'T' : 'F',
             scores.J >= scores.P ? 'J' : 'P'
           ].join('');
-          localStorage.setItem('type', resultType);
+          // حفظ النتيجة للتصنيف في localStorage
+          localStorage.setItem('type', type);
           localStorage.setItem('scores', JSON.stringify(scores));
+          // الانتقال لصفحة النتيجة
           window.location.href = 'result.html';
+          return;
         }
+        // انتقل للسؤال التالي
+        currentIndex++;
+        showQuestion(currentIndex);
       });
 
-      prevButton.addEventListener('click', () => {
+      // السابق
+      prevBtn.addEventListener('click', () => {
         if (currentIndex > 0) {
           currentIndex--;
           showQuestion(currentIndex);
@@ -123,9 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })
     .catch(err => {
-      console.error("Error loading questions:", err);
-      document.getElementById('question-text').textContent = "حدث خطأ أثناء تحميل الأسئلة.";
+      console.error('Error loading questions.json:', err);
       loadingDiv.style.display = 'none';
       testContainer.style.display = 'block';
+      document.getElementById('question-text').textContent = 'حدث خطأ أثناء تحميل الأسئلة.';
     });
 });
