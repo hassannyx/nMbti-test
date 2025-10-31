@@ -1,0 +1,146 @@
+[
+  {
+    "code": "ISTJ",
+    "name_en": "Logistician",
+    "name_ar": "اللوجستي",
+    "description_en": "Practical and fact-minded, known for their reliability and discipline.",
+    "description_ar": "عملي وواقعي ومتمسك بالحقائق، معروف بالموثوقية والانضباط.",
+    "celebrities_en": ["Warren Buffett", "Angela Merkel", "Natalie Portman", "George Washington", "Henry Ford"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ISFJ",
+    "name_en": "Defender",
+    "name_ar": "المدافع",
+    "description_en": "Dedicated and warm protector, always ready to defend those they care about.",
+    "description_ar": "مخلص ودافئ، حامي للأحباء ودائمًا مستعد للدفاع عن من يهتم لأمرهم.",
+    "celebrities_en": ["Queen Elizabeth II", "Beyoncé", "Kate Middleton", "Vin Diesel", "Anne Hathaway"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "INFJ",
+    "name_en": "Advocate",
+    "name_ar": "المحامي",
+    "description_en": "Quiet and mystical, yet inspiring and tireless idealists.",
+    "description_ar": "هادئ وغامض، لكنه ملهم ومثالي لا يكلّ في سعيه لتحقيق مبادئه.",
+    "celebrities_en": ["Nelson Mandela", "Martin Luther King Jr.", "Mahatma Gandhi", "Florence Nightingale", "Nicole Kidman"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "INTJ",
+    "name_en": "Architect",
+    "name_ar": "المهندس المعماري",
+    "description_en": "Imaginative and strategic thinker, with a plan for every situation.",
+    "description_ar": "مفكر خيالي واستراتيجي، لديه خطة لكل موقف.",
+    "celebrities_en": ["Elon Musk", "Mark Zuckerberg", "Nikola Tesla", "Stephen Hawking", "Arnold Schwarzenegger"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ISTP",
+    "name_en": "Virtuoso",
+    "name_ar": "البارع",
+    "description_en": "Bold and practical experimenter, master of all kinds of tools.",
+    "description_ar": "جريء وعملي في التجربة، ماهر في التعامل مع مختلف الأدوات.",
+    "celebrities_en": ["Bruce Lee", "Clint Eastwood", "Bear Grylls", "Amelia Earhart", "Tom Cruise"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ISFP",
+    "name_en": "Adventurer",
+    "name_ar": "المغامر",
+    "description_en": "Charming and flexible artist, always ready to explore and experience new things.",
+    "description_ar": "فنان ساحر ومرن، يتطلع دائمًا لاستكشاف تجارب وأشياء جديدة.",
+    "celebrities_en": ["Michael Jackson", "Princess Diana", "Bob Ross", "Frida Kahlo", "Keanu Reeves"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "INFP",
+    "name_en": "Mediator",
+    "name_ar": "الوسيط",
+    "description_en": "Poetic, kind, and altruistic, always eager to help a good cause.",
+    "description_ar": "شخصية شاعرية وطيبة وإيثارية، يتوق دائمًا للمساعدة في قضية نبيلة.",
+    "celebrities_en": ["J.R.R. Tolkien", "William Shakespeare", "Vincent van Gogh", "Johnny Depp", "Kurt Cobain"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "INTP",
+    "name_en": "Logician",
+    "name_ar": "المنطقي",
+    "description_en": "Innovative inventor with an insatiable thirst for knowledge.",
+    "description_ar": "مبتكر ومخترع، لديه عطش لا يروى للمعرفة.",
+    "celebrities_en": ["Albert Einstein", "Marie Curie", "Charles Darwin", "René Descartes", "Larry Page"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ESTP",
+    "name_en": "Entrepreneur",
+    "name_ar": "رائد الأعمال",
+    "description_en": "Smart, energetic and very perceptive person, who truly enjoys living on the edge.",
+    "description_ar": "ذكي ونشيط وشديد الملاحظة، يستمتع حقًا بالعيش في المواقف الجريئة والحماسية.",
+    "celebrities_en": ["Donald Trump", "Madonna", "Ernest Hemingway", "Bruce Willis", "Conor McGregor"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ESFP",
+    "name_en": "Entertainer",
+    "name_ar": "المسلي",
+    "description_en": "Spontaneous, energetic and enthusiastic entertainer – life is never boring around them.",
+    "description_ar": "عفوي ونشيط ومتحمس، مسلّي لمن حوله بحيث لا تكون الحياة مملة أبدًا بقربه.",
+    "celebrities_en": ["Marilyn Monroe", "Elvis Presley", "Will Smith", "Miley Cyrus", "Justin Bieber"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ESTJ",
+    "name_en": "Executive",
+    "name_ar": "التنفيذي",
+    "description_en": "Efficient administrator, excellent at managing tasks and people alike.",
+    "description_ar": "مدير كفء، بارع في إدارة المهام والأشخاص على حد سواء.",
+    "celebrities_en": ["Hillary Clinton", "Judge Judy", "Martha Stewart", "George W. Bush", "Dwight D. Eisenhower"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ESFJ",
+    "name_en": "Consul",
+    "name_ar": "القنصل",
+    "description_en": "Caring, social, and popular individual who is eager to support others.",
+    "description_ar": "ودود واجتماعي وشعبي، يسعى دائمًا لدعم ومساعدة الآخرين.",
+    "celebrities_en": ["Taylor Swift", "Bill Clinton", "Jennifer Lopez", "Anne Hathaway", "Prince William"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ENFJ",
+    "name_en": "Protagonist",
+    "name_ar": "البطل",
+    "description_en": "Charismatic and inspiring leader, able to captivate and motivate their audience.",
+    "description_ar": "قائد كاريزمي وملهم، قادر على جذب انتباه الآخرين وتحفيزهم.",
+    "celebrities_en": ["Barack Obama", "Oprah Winfrey", "Maya Angelou", "Ben Affleck", "Jennifer Lawrence"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ENFP",
+    "name_en": "Campaigner",
+    "name_ar": "المناضل",
+    "description_en": "Enthusiastic, creative and sociable free spirit, always finding a reason to smile.",
+    "description_ar": "متحمس ومبدع واجتماعي، ذو روح حرة يجد دائمًا سببًا للابتسام.",
+    "celebrities_en": ["Robin Williams", "Walt Disney", "Dr. Seuss", "Quentin Tarantino", "Salvador Dalí"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ENTJ",
+    "name_en": "Commander",
+    "name_ar": "القائد",
+    "description_en": "Bold, imaginative and strong-willed leader, always finding a way – or making one.",
+    "description_ar": "قائد جريء وخلاق وصاحب إرادة قوية، يجد دائمًا طريقة لتحقيق أهدافه أو يصنع طريقة بنفسه.",
+    "celebrities_en": ["Steve Jobs", "Margaret Thatcher", "Napoleon Bonaparte", "Gordon Ramsay", "Franklin D. Roosevelt"],
+    "celebrities_ar": []
+  },
+  {
+    "code": "ENTP",
+    "name_en": "Debater",
+    "name_ar": "المحاور",
+    "description_en": "Smart and curious thinker who cannot resist an intellectual challenge.",
+    "description_ar": "مفكر ذكي وفضولي، لا يستطيع مقاومة أي تحدٍ فكري.",
+    "celebrities_en": ["Thomas Edison", "Mark Twain", "Richard Feynman", "John Cleese", "Adam Savage"],
+    "celebrities_ar": []
+  }
+]
