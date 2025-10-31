@@ -1,222 +1,131 @@
-// Data and language handling
+// تحديد اللغة من التخزين المحلي أو افتراض العربية
 let lang = localStorage.getItem('lang') || 'ar';
+
+// النصوص المستخدمة في الموقع
 const texts = {
-  en: {
-    siteName: "MBTI Personality Test",
-    description: "Take this 16 Personalities (MBTI) test to discover your type.",
-    startTest: "Start Test",
-    next: "Next",
-    prev: "Previous",
-    finish: "Finish",
-    loading: "Loading your result...",
-    result: "Your Result",
-    famous: "Famous personalities with this type:",
-    chart: "Your personality breakdown:",
-    madeBy: "Made by Hassan Hadi"
-  },
   ar: {
-    siteName: "اختبار MBTI للشخصية",
-    description: "خض هذا الاختبار لتحديد نمط شخصيتك (16 شخصية).",
-    startTest: "ابدأ الاختبار",
     next: "التالي",
     prev: "السابق",
     finish: "إنهاء",
-    loading: "جاري تحضير النتيجة...",
-    result: "نتيجتك",
-    famous: "5 شخصيات مشهورة من هذا النمط:",
-    chart: "تفاصيل نمط شخصيتك:",
-    madeBy: "صُنع بواسطة حسن هادي"
+    madeBy: "صُنع بواسطة حسن هادي",
+  },
+  en: {
+    next: "Next",
+    prev: "Previous",
+    finish: "Finish",
+    madeBy: "Made by Hassan Hadi",
   }
 };
 
-// Apply text content based on current language
+// تطبيق اللغة على العناصر
 document.addEventListener('DOMContentLoaded', () => {
-  const siteNameElem = document.getElementById('site-name');
-  const creditsElem = document.getElementById('credits');
-  if(siteNameElem) siteNameElem.textContent = texts[lang].siteName;
-  if(creditsElem) creditsElem.textContent = texts[lang].madeBy;
-
-  const startBtn = document.getElementById('start-btn');
-  const descElem = document.getElementById('description');
-  const loadingText = document.getElementById('loading-text');
   const nextBtn = document.getElementById('next-btn');
   const prevBtn = document.getElementById('prev-btn');
-  const progressElem = document.getElementById('progress');
+  const creditsElem = document.getElementById('credits');
 
-  if(descElem) descElem.textContent = texts[lang].description;
+  if (nextBtn) nextBtn.textContent = texts[lang].next;
+  if (prevBtn) prevBtn.textContent = texts[lang].prev;
+  if (creditsElem) creditsElem.textContent = texts[lang].madeBy;
 
-  if(startBtn) {
-    startBtn.textContent = texts[lang].startTest;
-    startBtn.addEventListener('click', () => {
-      // ✅ Fixed redirect
-      window.location.href = './test.html';
+  const loadingDiv = document.getElementById('loading');
+  const testContainer = document.getElementById('test-container');
+
+  // تحميل الأسئلة من ملف JSON
+  fetch('questions.json')
+    .then(res => res.json())
+    .then(questions => {
+      // إخفاء شاشة التحميل بعد 2.5 ثانية
+      setTimeout(() => {
+        loadingDiv.style.display = 'none';
+        testContainer.style.display = 'block';
+      }, 2500);
+
+      let currentIndex = 0;
+      const totalQuestions = questions.length;
+      const userAnswers = new Array(totalQuestions).fill(null);
+
+      const questionText = document.getElementById('question-text');
+      const optionsContainer = document.getElementById('options-container');
+      const nextButton = document.getElementById('next-btn');
+      const prevButton = document.getElementById('prev-btn');
+      const progressText = document.getElementById('progress');
+
+      function showQuestion(index) {
+        const q = questions[index];
+        questionText.textContent = lang === 'ar' ? q.question_ar : q.question_en;
+        optionsContainer.innerHTML = '';
+
+        const options = lang === 'ar' ? q.options_ar : q.options_en;
+        options.forEach((option, j) => {
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.id = `q${index}_${j}`;
+          input.name = `q${index}`;
+          input.value = j;
+          if (userAnswers[index] === j) input.checked = true;
+
+          const label = document.createElement('label');
+          label.htmlFor = input.id;
+          label.textContent = option;
+
+          optionsContainer.appendChild(input);
+          optionsContainer.appendChild(label);
+        });
+
+        progressText.textContent = `${index + 1} / ${totalQuestions}`;
+        prevButton.disabled = index === 0;
+        nextButton.textContent = index === totalQuestions - 1 ? texts[lang].finish : texts[lang].next;
+        nextButton.disabled = userAnswers[index] === null;
+
+        document.querySelectorAll(`input[name="q${index}"]`).forEach(input => {
+          input.addEventListener('change', () => {
+            userAnswers[index] = Number(input.value);
+            nextButton.disabled = false;
+          });
+        });
+      }
+
+      showQuestion(0);
+
+      nextButton.addEventListener('click', () => {
+        if (currentIndex < totalQuestions - 1) {
+          currentIndex++;
+          showQuestion(currentIndex);
+        } else {
+          // حساب النتائج
+          const scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
+          questions.forEach((q, idx) => {
+            const ans = userAnswers[idx];
+            if (ans === null) return;
+            const dim = q.dimension;
+            const first = dim[0];
+            const second = dim[1];
+            if (ans <= 1) scores[first] += (ans === 0 ? 2 : 1);
+            else scores[second] += (ans === 3 ? 2 : 1);
+          });
+          const resultType = [
+            scores.E >= scores.I ? 'E' : 'I',
+            scores.S >= scores.N ? 'S' : 'N',
+            scores.T >= scores.F ? 'T' : 'F',
+            scores.J >= scores.P ? 'J' : 'P'
+          ].join('');
+          localStorage.setItem('type', resultType);
+          localStorage.setItem('scores', JSON.stringify(scores));
+          window.location.href = 'result.html';
+        }
+      });
+
+      prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          showQuestion(currentIndex);
+        }
+      });
+    })
+    .catch(err => {
+      console.error("Error loading questions:", err);
+      document.getElementById('question-text').textContent = "حدث خطأ أثناء تحميل الأسئلة.";
+      loadingDiv.style.display = 'none';
+      testContainer.style.display = 'block';
     });
-  }
-
-  if(nextBtn) nextBtn.textContent = texts[lang].next;
-  if(prevBtn) prevBtn.textContent = texts[lang].prev;
-  if(loadingText) loadingText.textContent = texts[lang].loading;
-
-  // Page logic
-  if(document.body.classList.contains('test-page')) {
-    fetch('questions.json')
-      .then(res => res.json())
-      .then(questions => {
-        let currentIndex = 0;
-        const totalQuestions = questions.length;
-        const userAnswers = new Array(totalQuestions).fill(null);
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        const nextButton = document.getElementById('next-btn');
-        const prevButton = document.getElementById('prev-btn');
-        const progressText = document.getElementById('progress');
-
-        function showQuestion(index) {
-          const q = questions[index];
-          questionText.textContent = lang === 'ar' ? q.question_ar : q.question_en;
-          optionsContainer.innerHTML = '';
-          q.options_en.forEach((opt, j) => {
-            const optionText = lang === 'ar' ? q.options_ar[j] : q.options_en[j];
-            const optionId = `q${index}_${j}`;
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = `q${index}`;
-            input.id = optionId;
-            input.value = j;
-            if(userAnswers[index] === j) input.checked = true;
-            const label = document.createElement('label');
-            label.htmlFor = optionId;
-            label.textContent = optionText;
-            optionsContainer.appendChild(input);
-            optionsContainer.appendChild(label);
-          });
-          const qWord = lang === 'ar' ? 'السؤال' : 'Question';
-          progressText.textContent = `${qWord} ${index+1} ${lang==='ar' ? 'من' : 'of'} ${totalQuestions}`;
-          prevButton.disabled = (index === 0);
-          nextButton.textContent = (index === totalQuestions - 1) ? texts[lang].finish : texts[lang].next;
-          nextButton.disabled = (userAnswers[index] === null);
-          document.querySelectorAll(`input[name="q${index}"]`).forEach(inputElem => {
-            inputElem.addEventListener('change', () => {
-              userAnswers[index] = Number(inputElem.value);
-              nextButton.disabled = false;
-            });
-          });
-        }
-
-        showQuestion(0);
-
-        nextButton.addEventListener('click', () => {
-          if(currentIndex < totalQuestions - 1) {
-            currentIndex++;
-            showQuestion(currentIndex);
-          } else {
-            const scores = { E:0, I:0, S:0, N:0, T:0, F:0, J:0, P:0 };
-            questions.forEach((q, idx) => {
-              const answer = userAnswers[idx];
-              if(answer === null) return;
-              const dim = q.dimension;
-              const firstLetter = dim.charAt(0);
-              const secondLetter = dim.charAt(1);
-              if(answer <= 1) {
-                scores[firstLetter] += (answer === 0 ? 2 : 1);
-              } else if(answer >= 2) {
-                scores[secondLetter] += (answer === 3 ? 2 : 1);
-              }
-            });
-            const typeLetters = [];
-            typeLetters.push(scores.E >= scores.I ? 'E' : 'I');
-            typeLetters.push(scores.S >= scores.N ? 'S' : 'N');
-            typeLetters.push(scores.T >= scores.F ? 'T' : 'F');
-            typeLetters.push(scores.J >= scores.P ? 'J' : 'P');
-            const resultType = typeLetters.join('');
-            localStorage.setItem('type', resultType);
-            localStorage.setItem('scores', JSON.stringify(scores));
-            // ✅ Fixed redirect to result page
-            window.location.href = './result.html';
-          }
-        });
-
-        prevButton.addEventListener('click', () => {
-          if(currentIndex > 0) {
-            currentIndex--;
-            showQuestion(currentIndex);
-          }
-        });
-      });
-  }
-  else if(document.body.classList.contains('result-page')) {
-    const typeCode = localStorage.getItem('type');
-    const scores = JSON.parse(localStorage.getItem('scores') || '{}');
-    if(!typeCode || !scores) {
-      window.location.href = './index.html';
-      return;
-    }
-    const resultTypeElem = document.getElementById('result-type');
-    const resultNameElem = document.getElementById('result-name');
-    const resultDescElem = document.getElementById('result-description');
-    const famousTitleElem = document.getElementById('famous-title');
-    const famousListElem = document.getElementById('famous-list');
-    const chartTitleElem = document.getElementById('chart-title');
-    resultTypeElem.textContent = typeCode;
-
-    fetch('types.json')
-      .then(res => res.json())
-      .then(typesData => {
-        const typeInfo = typesData.find(t => t.code === typeCode);
-        if(typeInfo) {
-          resultNameElem.textContent = lang === 'ar' ? typeInfo.name_ar : typeInfo.name_en;
-          resultDescElem.textContent = lang === 'ar' ? typeInfo.description_ar : typeInfo.description_en;
-          famousTitleElem.textContent = texts[lang].famous;
-          chartTitleElem.textContent = texts[lang].chart;
-          const celebs = (lang === 'ar' && typeInfo.celebrities_ar.length) ? typeInfo.celebrities_ar : typeInfo.celebrities_en;
-          celebs.forEach(name => {
-            const li = document.createElement('li');
-            li.textContent = name;
-            famousListElem.appendChild(li);
-          });
-          const chartContainer = document.getElementById('chart');
-          const axes = [
-            { pair: 'EI', first: 'E', second: 'I' },
-            { pair: 'SN', first: 'S', second: 'N' },
-            { pair: 'TF', first: 'T', second: 'F' },
-            { pair: 'JP', first: 'J', second: 'P' }
-          ];
-          axes.forEach(axis => {
-            const firstScore = scores[axis.first] || 0;
-            const secondScore = scores[axis.second] || 0;
-            const total = firstScore + secondScore;
-            const firstPercent = total ? Math.round((firstScore / total) * 100) : 0;
-            const secondPercent = 100 - firstPercent;
-            const axisDiv = document.createElement('div');
-            axisDiv.className = 'axis';
-            const labelDiv = document.createElement('div');
-            labelDiv.className = 'axis-label';
-            labelDiv.textContent = `${axis.first} / ${axis.second}`;
-            const barDiv = document.createElement('div');
-            barDiv.className = 'bar';
-            const fillFirst = document.createElement('div');
-            fillFirst.className = 'fill-first';
-            fillFirst.style.width = firstPercent + '%';
-            const fillSecond = document.createElement('div');
-            fillSecond.className = 'fill-second';
-            fillSecond.style.width = secondPercent + '%';
-            barDiv.appendChild(fillFirst);
-            barDiv.appendChild(fillSecond);
-            const valuesDiv = document.createElement('div');
-            valuesDiv.className = 'axis-values';
-            valuesDiv.textContent = `${axis.first}: ${firstPercent}% | ${axis.second}: ${secondPercent}%`;
-            axisDiv.appendChild(labelDiv);
-            axisDiv.appendChild(barDiv);
-            axisDiv.appendChild(valuesDiv);
-            chartContainer.appendChild(axisDiv);
-          });
-          const loadingDiv = document.getElementById('loading');
-          const resultContentDiv = document.getElementById('result-content');
-          setTimeout(() => {
-            if(loadingDiv) loadingDiv.style.display = 'none';
-            if(resultContentDiv) resultContentDiv.style.display = 'block';
-          }, 3000);
-        }
-      });
-  }
 });
