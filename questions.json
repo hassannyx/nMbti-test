@@ -1,0 +1,467 @@
+[
+  {
+    "dimension": "EI",
+    "question_en": "In social gatherings, do you get energized by being around many people or by having one-on-one conversations?",
+    "question_ar": "في التجمعات الاجتماعية، هل تشعر بالنشاط أكثر عندما تكون بين مجموعة كبيرة من الناس أم أثناء المحادثات الفردية؟",
+    "options_en": [
+      "Definitely by interacting with a large group of people",
+      "Somewhat by interacting with a large group of people",
+      "Somewhat by having one-on-one conversations",
+      "Definitely by having one-on-one conversations"
+    ],
+    "options_ar": [
+      "قطعًا عند التفاعل مع مجموعة كبيرة من الناس",
+      "إلى حد ما عند التفاعل مع مجموعة كبيرة من الناس",
+      "إلى حد ما أثناء المحادثات الفردية",
+      "قطعًا أثناء المحادثات الفردية"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "After a busy day, do you prefer to spend time with friends or have time alone to relax?",
+    "question_ar": "بعد يوم مزدحم، هل تفضل قضاء الوقت مع الأصدقاء أم تفضل بعض الوقت وحدك للاسترخاء؟",
+    "options_en": [
+      "Definitely spend time with friends socially",
+      "Prefer to spend some time with friends",
+      "Prefer to have some time alone to unwind",
+      "Definitely have alone time to relax"
+    ],
+    "options_ar": [
+      "قطعًا قضاء الوقت مع الأصدقاء في نشاط اجتماعي",
+      "أفضل قضاء بعض الوقت مع الأصدقاء",
+      "أفضل أن أحصل على بعض الوقت وحدي للاسترخاء",
+      "قطعًا الحصول على وقت وحدي للاسترخاء"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "When facing a challenge, do you prefer to brainstorm with others or work through it independently?",
+    "question_ar": "عند مواجهة تحدٍ، هل تفضل تبادل الأفكار مع الآخرين أم حله بشكل مستقل؟",
+    "options_en": [
+      "Definitely brainstorm with others for ideas",
+      "Sometimes brainstorm with others",
+      "Sometimes work through it on my own",
+      "Definitely work through it independently"
+    ],
+    "options_ar": [
+      "قطعًا أفضل تبادل الأفكار مع الآخرين",
+      "أحيانًا أبادل الأفكار مع الآخرين",
+      "أحيانًا أحل المشكلة بمفردي",
+      "قطعًا أفضل حلها بشكل مستقل"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "In your free time, do you seek out social events or prefer quiet time at home?",
+    "question_ar": "في وقت فراغك، هل تسعى لحضور فعاليات اجتماعية أم تفضل قضاء الوقت الهادئ في المنزل؟",
+    "options_en": [
+      "Definitely seek out social events",
+      "Occasionally attend social events",
+      "Occasionally enjoy quiet time at home",
+      "Definitely prefer quiet time at home"
+    ],
+    "options_ar": [
+      "قطعًا أسعى للفعاليات الاجتماعية",
+      "أحيانًا أحضر فعاليات اجتماعية",
+      "أحيانًا أستمتع بالوقت الهادئ في المنزل",
+      "قطعًا أفضل قضاء الوقت الهادئ في المنزل"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "How do you feel about small talk? Enjoy it or find it awkward and draining?",
+    "question_ar": "كيف تشعر بشأن الأحاديث القصيرة (المجاملة)؟ هل تستمتع بها أم تجدها محرجة ومُجهدة؟",
+    "options_en": [
+      "I really enjoy small talk with anyone",
+      "I don't mind a bit of small talk",
+      "I find small talk somewhat awkward",
+      "I find small talk very draining"
+    ],
+    "options_ar": [
+      "أستمتع حقًا بالأحاديث القصيرة مع أي شخص",
+      "لا أمانع إجراء حديث قصير",
+      "أجد الأحاديث القصيرة محرجة إلى حد ما",
+      "أجد الأحاديث القصيرة مُرهقة للغاية"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "Do you embrace new and unfamiliar situations enthusiastically or approach them with caution?",
+    "question_ar": "هل تستقبل المواقف الجديدة وغير المألوفة بحماس أم تتعامل معها بحذر؟",
+    "options_en": [
+      "I enthusiastically embrace new situations",
+      "I usually welcome new situations",
+      "I tend to be cautious with new situations",
+      "I am very cautious with unfamiliar situations"
+    ],
+    "options_ar": [
+      "أتقبل المواقف الجديدة بحماس شديد",
+      "أرحب عادةً بالمواقف الجديدة",
+      "أميل إلى الحذر مع المواقف الجديدة",
+      "أكون شديد الحذر مع المواقف غير المألوفة"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "Do you prefer an open office with group collaboration or a private workspace to focus?",
+    "question_ar": "هل تفضل مكتبًا مفتوحًا يتيح التعاون مع الآخرين أم مساحة عمل خاصة للتركيز؟",
+    "options_en": [
+      "Definitely prefer an open, collaborative space",
+      "Somewhat prefer an open, shared space",
+      "Somewhat prefer a private, quiet workspace",
+      "Definitely prefer a private workspace to focus"
+    ],
+    "options_ar": [
+      "قطعًا أفضل مساحة مفتوحة للتعاون",
+      "أفضل إلى حد ما مساحة مشتركة ومفتوحة",
+      "أفضل إلى حد ما مساحة عمل خاصة وهادئة",
+      "قطعًا أفضل مساحة عمل خاصة للتركيز"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "Do you feel comfortable being the center of attention or do you prefer to avoid it?",
+    "question_ar": "هل تشعر بالراحة عندما تكون محور الاهتمام أم تفضل تجنب ذلك؟",
+    "options_en": [
+      "Very comfortable being the center of attention",
+      "Somewhat comfortable if I'm the center of attention",
+      "Prefer not to be the center of attention",
+      "Really dislike being the center of attention"
+    ],
+    "options_ar": [
+      "مرتاح جدًا لكوني محور الاهتمام",
+      "مرتاح إلى حد ما إذا كنت محور الاهتمام",
+      "أفضل عدم أن أكون محور الاهتمام",
+      "لا أحب أبدًا أن أكون محور الاهتمام"
+    ]
+  },
+  {
+    "dimension": "EI",
+    "question_en": "When meeting new people, do you initiate conversations or wait for others to approach you?",
+    "question_ar": "عند مقابلة أشخاص جدد، هل تبادر ببدء المحادثة أم تنتظر أن يبادر الآخرون؟",
+    "options_en": [
+      "I always initiate conversations with new people",
+      "I often initiate conversations with new people",
+      "I often wait for others to initiate",
+      "I always wait for others to start talking"
+    ],
+    "options_ar": [
+      "أبادر دائمًا ببدء الحديث مع أشخاص جدد",
+      "غالبًا ما أبادر بالمحادثة مع أشخاص جدد",
+      "غالبًا ما أنتظر أن يبدأ الآخرون",
+      "أنتظر دائمًا أن يبدأ الآخرون بالحديث"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "When faced with a problem, do you rely on concrete facts and details or explore possibilities and meanings?",
+    "question_ar": "عند مواجهة مشكلة، هل تعتمد على الحقائق والتفاصيل الملموسة أم تستكشف الاحتمالات والمعاني المحتملة؟",
+    "options_en": [
+      "Rely completely on concrete facts and details",
+      "Mostly rely on facts and details",
+      "Mostly explore possibilities and meanings",
+      "Completely explore possibilities and deeper meanings"
+    ],
+    "options_ar": [
+      "أعتمد بالكامل على الحقائق والتفاصيل الملموسة",
+      "أعتمد في الغالب على الحقائق والتفاصيل",
+      "أستكشف في الغالب الاحتمالات والمعاني",
+      "أستكشف تمامًا الاحتمالات والمعاني الأعمق"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "When learning new information, do you prefer practical, hands-on experience or exploring theoretical concepts?",
+    "question_ar": "كيف تتعلم معلومات جديدة؟ هل تفضل التجارب العملية المباشرة أم استكشاف النظريات والمفاهيم؟",
+    "options_en": [
+      "Strongly prefer practical, hands-on experience",
+      "Lean towards hands-on but some theory is fine",
+      "Lean towards exploring theories and concepts",
+      "Strongly prefer exploring theories and concepts"
+    ],
+    "options_ar": [
+      "أفضل بشدة التجارب العملية المباشرة",
+      "أميل إلى التعلم العملي ولكن النظريات لا بأس بها",
+      "أميل إلى استكشاف النظريات والمفاهيم",
+      "أفضل بشدة استكشاف النظريات والمفاهيم"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "When planning a trip, do you prefer to have a detailed itinerary or leave room for spontaneous changes?",
+    "question_ar": "عند تخطيط رحلة، هل تفضل وضع برنامج مفصل وجدول واضح أم ترك مجال للتغييرات العفوية؟",
+    "options_en": [
+      "I make a detailed itinerary and stick to it",
+      "I like having a plan with minor flexibility",
+      "I prefer loose plans allowing some spontaneity",
+      "I leave the trip open for spontaneous changes"
+    ],
+    "options_ar": [
+      "أضع برنامجًا مفصلاً وألتزم به",
+      "أحب وجود خطة مع قليل من المرونة",
+      "أفضل خطط مرنة تسمح ببعض العفوية",
+      "أترك الرحلة مفتوحة للتغييرات العفوية"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "In group discussions, do you stick to factual details or contribute ideas and theories?",
+    "question_ar": "في المناقشات الجماعية، هل تلتزم بالحقائق والتفاصيل أم تطرح أفكارًا ونظريات جديدة؟",
+    "options_en": [
+      "I stick strictly to facts and details",
+      "I mostly stick to facts with some ideas",
+      "I often contribute new ideas and theories",
+      "I mainly contribute imaginative ideas and theories"
+    ],
+    "options_ar": [
+      "ألتزم تمامًا بالحقائق والتفاصيل",
+      "ألتزم بالحقائق في الغالب مع بعض الأفكار",
+      "غالبًا أطرح أفكارًا ونظريات جديدة",
+      "أركز بشكل أساسي على طرح أفكار ونظريات إبداعية"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "How do you handle unexpected changes to plans? Do you prefer stability or adapt easily?",
+    "question_ar": "كيف تتعامل مع التغييرات غير المتوقعة في الخطط؟ هل تفضل الاستقرار وقد تجد التغيير صعبًا أم تتكيف بسهولة وتستمتع بالمرونة؟",
+    "options_en": [
+      "I strongly prefer stability and dislike change",
+      "I handle small changes but prefer stability",
+      "I adapt pretty well to changes",
+      "I adapt very easily and enjoy the flexibility"
+    ],
+    "options_ar": [
+      "أفضل بقوة الاستقرار ولا أحب التغيير",
+      "أتعامل مع التغييرات الصغيرة لكن أفضل الاستقرار",
+      "أتكيف بشكل جيد مع التغييرات",
+      "أتكيف بسهولة كبيرة وأستمتع بالمرونة"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "When enjoying a book or movie, do you focus on the plot and events or look for deeper meanings and symbolism?",
+    "question_ar": "عند قراءة كتاب أو مشاهدة فيلم، هل تركز أكثر على الحبكة والأحداث أم تبحث عن المعاني العميقة والرمزية؟",
+    "options_en": [
+      "I focus completely on the plot and events",
+      "Mostly on plot, a little on deeper meaning",
+      "Mostly look for deeper meanings and themes",
+      "Always analyzing deeper meanings and symbolism"
+    ],
+    "options_ar": [
+      "أركز بالكامل على الحبكة والأحداث",
+      "أركز في الغالب على الحبكة مع قليل من البحث عن المعنى",
+      "أميل للبحث عن المعاني الأعمق والمواضيع",
+      "أحلل دائمًا المعاني العميقة والرمزية"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "When making decisions, do you rely more on past experiences or seek out innovative and creative solutions?",
+    "question_ar": "عند اتخاذ قرار، هل تعتمد أكثر على خبراتك السابقة والأساليب المجربة أم تبحث عن حلول إبداعية ومبتكرة؟",
+    "options_en": [
+      "Rely entirely on past experiences and tried methods",
+      "Mostly rely on what worked in the past",
+      "Often look for innovative and creative solutions",
+      "Always seek out new and creative solutions"
+    ],
+    "options_ar": [
+      "أعتمد كليًا على الخبرات السابقة والأساليب المجربة",
+      "أعتمد غالبًا على ما نجح في الماضي",
+      "غالبًا ما أبحث عن حلول إبداعية ومبتكرة",
+      "دائمًا أسعى وراء حلول جديدة ومبتكرة"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "In brainstorming, do your ideas usually lean towards practical solutions or imaginative, out-of-the-box concepts?",
+    "question_ar": "في جلسة عصف ذهني، هل تميل أفكارك إلى أن تكون حلولًا عملية قابلة للتنفيذ أم مفاهيم إبداعية وخارجة عن المألوف؟",
+    "options_en": [
+      "My ideas are almost always practical and actionable",
+      "Mostly practical ideas with some creativity",
+      "Mostly imaginative, out-of-the-box ideas",
+      "Almost all ideas are highly imaginative and unconventional"
+    ],
+    "options_ar": [
+      "أفكاري دائمًا تقريبًا عملية وقابلة للتنفيذ",
+      "أفكاري عملية في الغالب مع بعض الإبداع",
+      "أفكاري في الغالب خيالية وخارجة عن المألوف",
+      "جميع أفكاري تقريبًا إبداعية للغاية وغير تقليدية"
+    ]
+  },
+  {
+    "dimension": "SN",
+    "question_en": "How do you approach solving problems? Step-by-step and methodical or with creative openness?",
+    "question_ar": "كيف تتعامل مع حل المشكلات؟ هل تتبع نهجًا منهجيًا خطوة بخطوة أم تفضل مقاربة إبداعية ومنفتحة؟",
+    "options_en": [
+      "I always use a step-by-step, methodical approach",
+      "I usually solve problems methodically",
+      "I usually welcome creative, open approaches",
+      "I approach problems in a very creative, flexible way"
+    ],
+    "options_ar": [
+      "أتبع دائمًا نهجًا منهجيًا خطوة بخطوة",
+      "أحل المشكلات عادةً بطريقة منهجية",
+      "أرحب عادةً بالمقاربات الإبداعية والمنفتحة",
+      "أتعامل مع المشكلات بطريقة إبداعية ومرنة للغاية"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "When making decisions, do you prioritize logical reasoning or consider how people will be affected?",
+    "question_ar": "عند اتخاذ القرارات، هل تعطي الأولوية للتحليل المنطقي والمعايير الموضوعية أم تنظر في تأثير القرار على الأشخاص والعلاقات؟",
+    "options_en": [
+      "I strictly prioritize logical analysis",
+      "I mostly prioritize logic over feelings",
+      "I mostly consider people and relationships",
+      "I strongly consider impact on people over logic"
+    ],
+    "options_ar": [
+      "أُعطي الأولوية تمامًا للتحليل المنطقي",
+      "أُعطي الأولوية في الغالب للمنطق على حساب العواطف",
+      "أضع في الاعتبار في الغالب الأشخاص والعلاقات",
+      "أركز بشدة على تأثير القرار على الأشخاص أكثر من المنطق"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "How do you respond to criticism or feedback? Focus on facts or the emotional impact?",
+    "question_ar": "كيف تتعامل مع النقد أو الملاحظات؟ هل تركز على الحقائق وإيجاد حلول بنّاءة أم تأخذ بعين الاعتبار الجوانب العاطفية وكيف يؤثر النقد على العلاقات؟",
+    "options_en": [
+      "I focus entirely on facts and constructive solutions",
+      "I mostly look at facts, minimal emotional concern",
+      "I consider the emotional aspects somewhat",
+      "I strongly consider feelings and relationship impact"
+    ],
+    "options_ar": [
+      "أركز بالكامل على الحقائق وحلول بنّاءة",
+      "أنظر في الغالب إلى الحقائق وأهتم قليلًا بالجوانب العاطفية",
+      "آخذ بعين الاعتبار الجوانب العاطفية إلى حد ما",
+      "أركز بشدة على المشاعر وتأثير النقد على العلاقات"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "In group decisions, do you argue for the most logical choice or the one that maintains harmony?",
+    "question_ar": "في عملية اتخاذ قرار جماعي، هل تميل إلى الدفاع عن الخيار الأكثر منطقية وعقلانية أم الخيار الذي ينسجم مع قيم الآخرين ويحافظ على الانسجام؟",
+    "options_en": [
+      "I always advocate for the most logical choice",
+      "Usually push for logic over harmony",
+      "Usually aim for harmony over pure logic",
+      "I always prioritize group harmony over logic"
+    ],
+    "options_ar": [
+      "أدافع دائمًا عن الخيار الأكثر منطقية",
+      "غالبًا ما أغلّب المنطق على الانسجام",
+      "غالبًا أسعى للحفاظ على الانسجام على حساب المنطق أحيانًا",
+      "أُعطي الأولوية دائمًا للانسجام الجماعي على المنطق"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "During debates, do you tend to emphasize facts and logic or personal values and feelings?",
+    "question_ar": "عند مناقشة الآراء، هل تؤكد على الحقائق والأدلة والمنطق أم تراعي القيم الشخصية والمشاعر؟",
+    "options_en": [
+      "I focus only on facts, evidence, and logic",
+      "Mostly facts and logic, little about feelings",
+      "Mostly consider personal values and feelings",
+      "I emphasize feelings and values over cold logic"
+    ],
+    "options_ar": [
+      "أركز فقط على الحقائق والأدلة والمنطق",
+      "أركز في الغالب على الحقائق والمنطق مع قليل من الاعتبار للمشاعر",
+      "أراعي في الغالب القيم الشخصية والمشاعر",
+      "أؤكد على المشاعر والقيم أكثر من المنطق البحت"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "When solving conflicts, do you prefer to be efficient even if blunt, or to consider others' feelings?",
+    "question_ar": "عند حل مشكلة أو خلاف، هل تفضل تحقيق الكفاءة والفعالية حتى لو كنت صريحًا جدًا، أم تأخذ مشاعر الآخرين بعين الاعتبار؟",
+    "options_en": [
+      "I aim for efficiency even if it means being blunt",
+      "Mostly try to be efficient with some tact",
+      "Mostly try to spare feelings even if less efficient",
+      "I always consider feelings, even over efficiency"
+    ],
+    "options_ar": [
+      "أسعى إلى الفعالية حتى لو تطلب الأمر صراحةً زائدة",
+      "أحاول في الغالب أن أكون فعالاً مع بعض اللباقة",
+      "أحاول في الغالب مراعاة المشاعر حتى لو كانت الكفاءة أقل",
+      "دائمًا أراعي المشاعر حتى لو كان ذلك على حساب الكفاءة"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "At work, do you value objective performance results or a positive and supportive team environment more?",
+    "question_ar": "في بيئة العمل، هل تقدّر مقاييس الأداء والنتائج الموضوعية أكثر أم تفضل ثقافة فريق إيجابية وداعمة؟",
+    "options_en": [
+      "I strongly value objective results over everything",
+      "I mostly value performance results",
+      "I mostly value a supportive team culture",
+      "I strongly value a positive team environment over results"
+    ],
+    "options_ar": [
+      "أقدّر بشدة النتائج الموضوعية فوق كل شيء",
+      "أقدّر في الغالب أداء العمل ونتائجه",
+      "أقدّر في الغالب ثقافة فريق إيجابية وداعمة",
+      "أقدّر بشدة البيئة الإيجابية للفريق أكثر من النتائج"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "How do you resolve conflicts? By finding logical solutions or addressing emotional needs of everyone?",
+    "question_ar": "كيف تحل النزاعات؟ هل تركز على إيجاد حلول منطقية أم تراعي الاحتياجات العاطفية للجميع؟",
+    "options_en": [
+      "I focus completely on logical solutions and compromise",
+      "Mostly logical solutions, slight regard to feelings",
+      "Mostly try to address people's emotional needs",
+      "I prioritize emotional needs and harmony over logic"
+    ],
+    "options_ar": [
+      "أركز بالكامل على حلول منطقية وتسويات عادلة",
+      "أركز على الحلول المنطقية مع مراعاة بسيطة للمشاعر",
+      "أحاول في الغالب تلبية الاحتياجات العاطفية للأفراد",
+      "أُعطي الأولوية للاحتياجات العاطفية والتناغم على حساب المنطق"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "Under stress, do you analyze the situation logically or seek emotional support?",
+    "question_ar": "كيف تتعامل مع الضغوط؟ هل تحلل الموقف بشكل منطقي أو تلجأ إلى الدعم العاطفي؟",
+    "options_en": [
+      "I analyze everything logically and make a plan",
+      "I mostly try to stay logical under stress",
+      "I mostly seek emotional support from others",
+      "I immediately look for emotional support and understanding"
+    ],
+    "options_ar": [
+      "أحلل كل شيء بمنطقية وأضع خطة",
+      "أحاول في الغالب البقاء منطقيًا تحت الضغط",
+      "ألجأ في الغالب إلى الدعم العاطفي من الآخرين",
+      "أسعى فورًا للحصول على الدعم العاطفي والتفهم"
+    ]
+  },
+  {
+    "dimension": "TF",
+    "question_en": "When giving feedback, do you usually provide constructive criticism or focus on positive encouragement?",
+    "question_ar": "عند تقديم الملاحظات، هل تميل إلى النقد البناء واقتراح التحسينات أم التركيز على الجوانب الإيجابية وتشجيع الشخص؟",
+    "options_en": [
+      "I mostly give constructive criticism and suggestions",
+      "I give some criticism with a bit of encouragement",
+      "I mostly highlight positive aspects and encourage",
+      "I only highlight positives and encourage"
+    ],
+    "options_ar": [
+      "أتجه في الغالب إلى النقد البناء وتقديم الاقتراحات",
+      "أقدم بعض النقد مع قليل من التشجيع",
+      "أبرز في الغالب الجوانب الإيجابية وأشجع",
+      "أركز فقط على الإيجابيات وأقدم التشجيع"
+    ]
+  },
+  {
+    "dimension": "JP",
+    "question_en": "Do you like to make detailed plans and stick to a schedule, or prefer flexibility and spontaneity?",
+    "question_ar": "كيف تشعر حيال وضع الخطط والالتزام بجدول زمني؟ هل تستمتع بوضع خطط تفصيلية وتفضّل الجدول المنظم أم تفضّل المرونة والعفوية؟",
+    "options_en": [
+      "I love making plans and following a structured schedule",
+      "I usually like having a pla
