@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>اختبار الشخصية MBTI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار MBTI للشخصية</title>
+  <link rel="stylesheet" href="style.css">
+
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: "Cairo", sans-serif;
       background: #0d1117;
-      color: #ffffff;
+      color: #e5e7eb;
       text-align: center;
     }
+
+    /* شاشة تحميل */
     #loading {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
+      background: #0d1117;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #0d1117;
+      flex-direction: column;
       z-index: 9999;
     }
     .loader {
       border: 6px solid #2d3748;
       border-top: 6px solid #2563eb;
       border-radius: 50%;
-      width: 45px;
-      height: 45px;
+      width: 50px; height: 50px;
       animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
     }
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
+
+    /* الحاوية الرئيسية للاختبار */
     .test-container {
       display: none;
       background: #111827;
       border-radius: 16px;
       padding: 25px;
-      max-width: 480px;
+      max-width: 500px;
       width: 90%;
-      margin: 80px auto;
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      margin: 80px auto 40px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
     }
     .question-text {
-      font-size: 1.3em;
-      margin: 20px 0;
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
       line-height: 1.6;
     }
     .options {
@@ -56,20 +60,25 @@
       flex-direction: column;
       gap: 12px;
     }
-    label {
+    .options input[type="radio"] {
+      display: none;
+    }
+    .options label {
       background: #1f2937;
       padding: 12px;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
       border: 1px solid transparent;
+      transition: all 0.2s;
+      text-align: start;
     }
-    input[type="radio"] {
-      display: none;
-    }
-    input[type="radio"]:checked + label {
+    .options input[type="radio"]:checked + label {
       background: #2563eb;
       border-color: #3b82f6;
+      color: #fff;
+    }
+    .options label:hover {
+      background: #243d73;
       color: #fff;
     }
     .buttons {
@@ -79,8 +88,8 @@
     }
     .btn {
       background: #2563eb;
+      color: #fff;
       border: none;
-      color: white;
       padding: 10px 18px;
       border-radius: 8px;
       cursor: pointer;
@@ -90,19 +99,26 @@
       opacity: 0.5;
       cursor: not-allowed;
     }
+
     footer {
-      margin-top: 25px;
       font-size: 14px;
-      opacity: 0.8;
+      opacity: .7;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body class="test-page">
-  <div id="loading"><div class="loader"></div></div>
 
-  <main class="test-container" id="test-container">
-    <div id="progress">1 / 35</div>
-    <div id="question-text" class="question-text">جارٍ تحميل الأسئلة...</div>
+  <!-- شاشة تحميل -->
+  <div id="loading">
+    <div class="loader"></div>
+    <p>جارٍ تحميل الأسئلة…</p>
+  </div>
+
+  <!-- محتوى الاختبار -->
+  <main id="test-container" class="test-container">
+    <div id="progress"></div>
+    <div id="question-text" class="question-text"></div>
     <div id="options-container" class="options"></div>
     <div class="buttons">
       <button id="prev-btn" class="btn">السابق</button>
