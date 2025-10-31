@@ -1,0 +1,161 @@
+/* Root and theme colors */
+:root {
+  --bg-color: #fafafa;
+  --text-color: #333;
+  --accent-color: #3498db;
+  --accent-color-alt: #2980b9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #3498db;
+    --accent-color-alt: #5dade2;
+  }
+}
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+header {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+/* Index page */
+.index-page .container {
+  text-align: center;
+}
+.index-page #description {
+  font-size: 1.1rem;
+  margin: 1.5rem 0;
+}
+/* Buttons */
+button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.navigation {
+  margin: 1rem 0;
+}
+.navigation button + button {
+  margin-left: 0.5rem;
+}
+/* Question options */
+.question-options label {
+  display: block;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* Hide default radio */
+.question-options input[type="radio"] {
+  display: none;
+}
+.question-options input[type="radio"]:checked + label {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+.question-options label:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  opacity: 0.8;
+}
+/* Result page */
+#loading {
+  text-align: center;
+  padding: 2rem 0;
+}
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--accent-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+#result-type {
+  font-size: 2rem;
+  margin: 1rem 0 0.5rem;
+}
+#result-name {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+}
+#result-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+#famous-title, #chart-title {
+  margin: 1.5rem 0 0.5rem;
+}
+#famous-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+#chart {
+  margin: 1rem 0;
+}
+.axis {
+  margin: 0.5rem 0;
+}
+.axis-label {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.bar {
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  height: 1.2rem;
+}
+.fill-first {
+  background-color: var(--accent-color);
+  height: 100%;
+  float: left;
+}
+.fill-second {
+  background-color: var(--accent-color-alt);
+  height: 100%;
+  float: left;
+}
+.axis-values {
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
